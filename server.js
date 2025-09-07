@@ -1,4 +1,3 @@
-// server.js
 import express from "express";
 import fetch from "node-fetch";
 import path from "path";
@@ -50,13 +49,13 @@ app.post("/send", async (req, res) => {
     const data = await response.json();
 
     if (data.ok) {
-      res.json({ success: true, data });
+      return res.json({ success: true, data });
     } else {
-      res.status(500).json({ success: false, error: "Telegram API-ის შეცდომა: " + data.description });
+      return res.status(500).json({ success: false, error: "Telegram API-ის შეცდომა: " + data.description });
     }
   } catch (err) {
     console.error("სერვერის შეცდომა:", err);
-    res.status(500).json({ success: false, error: "შეცდომა სერვერთან კავშირში" });
+    return res.status(500).json({ success: false, error: "შეცდომა სერვერთან კავშირში" });
   }
 });
 
