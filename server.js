@@ -3,6 +3,9 @@ import express from "express";
 import fetch from "node-fetch";
 import path from "path";
 import { fileURLToPath } from "url";
+import dotenv from "dotenv";
+
+dotenv.config(); // წაიკითხავს .env ფაილიდან ტოკენებს
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -11,14 +14,9 @@ const app = express();
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
-const BOT_TOKEN = "7965775712:AAFbFkyxiYuWg892Rulc02FDAh9rML_FtYI";
-const CHAT_ID = "2095571514";
+const BOT_TOKEN = process.env.BOT_TOKEN;
+const CHAT_ID = process.env.CHAT_ID;
 
-fetch("https://telegram-server.onrender.com/send", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ message: "გამარჯობა Telegram!" })
-});
 app.post("/send", async (req, res) => {
     try {
         const { message } = req.body;
@@ -26,7 +24,8 @@ app.post("/send", async (req, res) => {
         if (!message) {
             return res.status(400).json({ success: false, error: "შეტყობინება აუცილებელია" });
         }
-    const response = await fetch(`https://techzone-f4hj.onrender.com`, {
+
+        const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -34,7 +33,9 @@ app.post("/send", async (req, res) => {
                 text: message,
             }),
         });
+
         const data = await response.json();
+
         if (data.ok) {
             res.json({ success: true, data });
         } else {
