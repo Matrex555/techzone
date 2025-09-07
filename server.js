@@ -11,8 +11,8 @@ const app = express();
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
-const BOT_TOKEN = "7965775712:AAFbFkyxiYuWg892Rulc02FDAh9rML_FtYI";
-const CHAT_ID = "2095571514";
+const BOT_TOKEN = "179657757121:AAFbFkyxiYuWg892Rulc02FDAh9rML_FtYI";
+const CHAT_ID = "120955715141";
 
 app.post("/send", async (req, res) => {
     try {
