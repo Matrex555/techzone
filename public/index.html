@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechZone</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>TechZone</h1>
+        <nav>
+            <a href="#services">სერვისები</a>
+            <a href="#contact">კონტაქტი</a>
+            <a href="#about">ჩვენს შესახებ</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <h1>აირჩიე დახმარების ტიპი</h1>
+            <p>პროფესიონალური ტექნიკური დახმარება 24/7</p>
+        </section>
+
+        <section id="services" class="cards-container">
+            <div class="card" data-service="windows">
+                <div class="wrapper">
+                    <div class="card-bg windows-bg"></div>
+                </div>
+                <h2 class="title-text">💻 Windows-ის გადაყენება</h2>
+            </div>
+
+            <div class="card" data-service="tech">
+                <div class="wrapper">
+                    <div class="card-bg tech-bg"></div>
+                </div>
+                <h2 class="title-text">🔧 ტექნიკური დახმარება</h2>
+            </div>
+
+            <div class="card" data-service="build">
+                <div class="wrapper">
+                    <div class="card-bg build-bg"></div>
+                </div>
+                <h2 class="title-text">🧩 სისტემის აწყობა</h2>
+            </div>
+        </section>
+
+        <section id="formSection">
+            <h2 id="formTitle">აირჩიე დახმარების ტიპი</h2>
+            <form id="helpForm">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="სახელი *" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="phone" placeholder="ტელეფონის ნომერი *" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="address" placeholder="მისამართი *" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="pcModel" placeholder="მიუთითეთ თარიღი">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="timeSlot" placeholder="სასურველი დრო">
+                </div>
+                <div class="form-group">
+                    <textarea id="additional" placeholder="დამატებითი ინფორმაცია"></textarea>
+                </div>
+                <button type="submit">გაგზავნა</button>
+            </form>
+            <div id="successMsg" style="display: none;">
+                ✅ ჩვენ დაგიკავშირდებით ძალიან მალე. გმადლობთ, რომ აგვირჩიეთ.
+            </div>
+            <div id="contactInfo" style="display: none;">
+                <h3>დაგვიკავშირდით პირდაპირ:</h3>
+                <p>📞 ტელეფონი: +995 555 783 919</p>
+                <p>📧 ელ-ფოსტა: info@techzone.ge</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div id="animated-guy">
+            <div class="hat"></div>
+            <div class="head">
+                <div class="eye left"><div class="pupil"></div></div>
+                <div class="eye right"><div class="pupil"></div></div>
+            </div>
+            <div class="body">
+                <div class="shirt-text">TECH</div>
+                <div class="left-arm"><div class="tool wrench"></div></div>
+                <div class="right-arm"><div class="tool mouse"></div></div>
+            </div>
+        </div>
+        <p>TECHZONE</p>
+    </footer>
+</body>
+</html>
