@@ -27,7 +27,6 @@ fetch("https://telegram-server.onrender.com/send", {
                 text: message,
             }),
         });
-
         const data = await response.json();
         if (data.ok) {
             res.json({ success: true, data });
