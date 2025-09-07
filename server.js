@@ -19,6 +19,13 @@ fetch("https://telegram-server.onrender.com/send", {
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify({ message: "გამარჯობა Telegram!" })
 });
+app.post("/send", async (req, res) => {
+    try {
+        const { message } = req.body;
+
+        if (!message) {
+            return res.status(400).json({ success: false, error: "შეტყობინება აუცილებელია" });
+        }
     const response = await fetch(`https://techzone-f4hj.onrender.com`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
