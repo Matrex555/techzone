@@ -22,15 +22,16 @@ app.post("/send", async (req, res) => {
             return res.status(400).json({ success: false, error: "შეტყობინება აუცილებელია" });
         }
 
-        const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                chat_id: CHAT_ID,
-                text: message,
-            }),
-        });
 
+        fetch("https://profound-encouragement.up.railway.app/send", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    message: "გამარჯობა! ვტესტავ 🤖"
+  })
+})
         const data = await response.json();
         if (data.ok) {
             res.json({ success: true, data });
