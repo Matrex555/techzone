@@ -46,4 +46,7 @@ app.post("/send", async (req, res) => {
     }
 });
 
-app.listen(3000, () => console.log("🚀 სერვერი გაშვებულია http://localhost:3000-ზე"));
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`სერვერი გაშვებულია პორტზე ${PORT}`);
+});
