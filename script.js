@@ -149,7 +149,9 @@ document.addEventListener('DOMContentLoaded', function() {
         `.trim();
 
         try {
-            const response = await fetch('http://localhost:3000/send', {
+            // const response = await fetch('http://localhost:3000/send', {
+            const response = await fetch('techzone-beta.vercel.app/send', {
+                
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
